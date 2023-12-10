@@ -40,6 +40,7 @@ button {
   font-size: 2rem;
   font-family: inherit;
   cursor: pointer;
+  border-radius: 5px;
 }
 h5 {
   font-size: 1.4rem;
@@ -168,4 +169,65 @@ h4 {
   border: 3px solid #222;
   background-color: transparent;
   color: #222;
+}
+
+@media screen and (max-width: 800px) {
+  button {
+    font-size: 1.2rem;
+  }
+  .tips {
+    font-size: 1rem;
+  }
+  .hero {
+    font-size: 3rem;
+  }
+  .result::after {
+    top: 240px;
+  }
+  .result {
+    width: 15rem;
+  }
+  .check_inputs {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+  }
+  .condition_cards {
+    align-items: center;
+  }
+}
+@media screen and (max-width: 600px) {
+  .top_cnt {
+    flex-direction: column-reverse;
+  }
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+  .result::after {
+    top: 265px;
+  }
+  #text {
+    width: 18rem;
+    padding: 1.8rem;
+    font-size: 4rem;
+  }
+  .hero {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .hero {
+    font-size: 2rem;
+  }
+  .result::after {
+    top: 245px;
+  }
+  .check_inputs {
+    margin-top: 50px;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
 }
