@@ -24,6 +24,7 @@ const restartComponent = document.querySelector(".restart");
 const restartCard = document.querySelector(".restart_card");
 const opportunityText = document.getElementById("opportunity_text");
 const tipText = document.querySelector(".tips");
+const bodyComponent = document.querySelector("body");
 /////////////// Musics ///////////////
 
 const lossMusic = new Audio("../music/08. Lost a Life.mp3");
@@ -58,8 +59,8 @@ checkBtn.addEventListener("click", () => {
   checkNum();
 });
 function checkNum() {
-  let inputValue = Number(Input.value);
   Input.disabled = true;
+  let inputValue = Number(Input.value);
   if (!inputValue) {
     alert("Son kiriting");
   } else {
@@ -110,17 +111,9 @@ function checkNum() {
         scoreNum++;
         scoreInput.textContent = `${scoreNum}`;
         resultBox.innerHTML = randomNum;
-        winMusic.addEventListener("canplaythrough", () => {
-          Input.disabled = false;
-        });
         winMusic.play();
-        winMusic.addEventListener("playing", () => {
-          Input.disabled = true;
-        });
-        winMusic.addEventListener("ended", () => {
-          Input.disabled = false;
-        });
         Input.blur();
+        bodyComponent.style.overflowY = "hidden";
         if (heroText.textContent.includes("Mening")) {
           referanceInput.textContent = "Siz topdingiz";
         } else if (heroText.textContent.includes("Guess")) {
@@ -162,6 +155,7 @@ function restartGame() {
   restartComponent.classList.add("hide");
   restartCard.classList.add("hide");
   resultBox.innerHTML = "?";
+  bodyComponent.style.overflowY = "visible";
 }
 
 //////////////// Change Languages ///////////////
@@ -207,6 +201,7 @@ rusLanguageBtn.addEventListener("click", () => {
 });
 
 continueBtn.addEventListener("click", () => {
+  bodyComponent.style.overflowY = "visible";
   if (opportunityNum > 0) {
     createRandomNum();
     console.log(randomNum);
