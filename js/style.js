@@ -25,9 +25,9 @@ const restartCard = document.querySelector(".restart_card");
 const opportunityText = document.getElementById("opportunity_text");
 const tipText = document.querySelector(".tips");
 /////////////// Musics ///////////////
-const lossMusic = document.querySelector(".loss");
-const winMusic = document.querySelector(".win");
 
+const lossMusic = new Audio("../music/08. Lost a Life.mp3");
+const winMusic = new Audio("../music/06. Level Complete.mp3");
 let opportunityNum = 10;
 let scoreNum = 0;
 let randomNum;
@@ -59,12 +59,22 @@ checkBtn.addEventListener("click", () => {
 });
 function checkNum() {
   let inputValue = Number(Input.value);
+  Input.disabled = true;
   if (!inputValue) {
     alert("Son kiriting");
   } else {
     if (opportunityNum > 0) {
       if (randomNum > inputValue) {
+        lossMusic.addEventListener("canplaythrough", () => {
+          Input.disabled = false;
+        });
         lossMusic.play();
+        lossMusic.addEventListener("playing", () => {
+          Input.disabled = true;
+        });
+        lossMusic.addEventListener("ended", () => {
+          Input.disabled = false;
+        });
         opportunityNum--;
         opportunityInput.textContent = `${opportunityNum}`;
         if (heroText.textContent.includes("Mening")) {
@@ -75,8 +85,17 @@ function checkNum() {
           referanceInput.textContent = "Слишком маленький";
         }
       } else if (randomNum < inputValue) {
-        opportunityNum--;
+        lossMusic.addEventListener("canplaythrough", () => {
+          Input.disabled = false;
+        });
         lossMusic.play();
+        lossMusic.addEventListener("playing", () => {
+          Input.disabled = true;
+        });
+        lossMusic.addEventListener("ended", () => {
+          Input.disabled = false;
+        });
+        opportunityNum--;
         opportunityInput.textContent = `${opportunityNum}`;
         if (heroText.textContent.includes("Mening")) {
           referanceInput.textContent = "Ancha Katta";
@@ -91,7 +110,16 @@ function checkNum() {
         scoreNum++;
         scoreInput.textContent = `${scoreNum}`;
         resultBox.innerHTML = randomNum;
+        winMusic.addEventListener("canplaythrough", () => {
+          Input.disabled = false;
+        });
         winMusic.play();
+        winMusic.addEventListener("playing", () => {
+          Input.disabled = true;
+        });
+        winMusic.addEventListener("ended", () => {
+          Input.disabled = false;
+        });
         Input.blur();
         if (heroText.textContent.includes("Mening")) {
           referanceInput.textContent = "Siz topdingiz";
