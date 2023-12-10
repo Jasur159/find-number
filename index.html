@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Number</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="top_cnt">
+        <div class="buttons">
+          <button id="reset" type="button">Again!</button>
+          <button id="uz" type="button">UZ</button>
+          <button id="eng" type="button">ENG</button>
+          <button id="rus" type="button">RUS</button>
+        </div>
+        <h5 class="tips">(Between 1 and 20)</h5>
+      </div>
+      <h1 class="hero">Guess My Number!</h1>
+      <div class="result">?</div>
+
+      <div class="check_inputs">
+        <div class="check_input">
+          <input
+            type="text"
+            id="text"
+            onkeydown="
+            if(event.key=== 'Enter'){
+              checkNum();
+            }
+            
+            "
+          />
+          <button type="button" id="Submit_btn">Check!</button>
+        </div>
+        <div class="conditions">
+          <h4 class="Guessing_result">Start guessing...</h4>
+          <div class="condition_cards">
+            <div class="condition_card">
+              <h4 class="score_text">Score:</h4>
+              <h4 id="score">0</h4>
+            </div>
+            <div class="condition_card">
+              <h4 id="opportunity">10</h4>
+              <h4 id="opportunity_text">: Opportunity left</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="restart_card hide">
+      <div class="restart hide">
+        <button id="restart" type="button">Restart!</button>
+        <button id="continue" type="button">Continue!</button>
+      </div>
+    </div>
+    <div class="music">
+      <audio controls src="./music/08. Lost a Life.mp3" class="loss"></audio>
+      <audio controls class="win" src="./music/06. Level Complete.mp3"></audio>
+    </div>
+    <script src="./js/style.js"></script>
+  </body>
+</html>

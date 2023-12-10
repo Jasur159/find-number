@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+* {
+  margin-top: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Press Start 2P", sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: #222;
+  color: #eee;
+  overflow-x: hidden;
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.top_cnt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0 40px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+button {
+  border: none;
+  outline: none;
+  padding: 15px 20px;
+  border: none;
+  background-color: #eee;
+  color: #222;
+  font-size: 2rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+h5 {
+  font-size: 1.4rem;
+}
+button:hover {
+  opacity: 0.7;
+}
+h1 {
+  font-size: 4rem;
+  text-align: center;
+}
+.result {
+  background: #eee;
+  color: #333;
+  font-size: 5rem;
+  width: 17rem;
+  padding: 3rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px;
+  margin-top: 6rem;
+  position: relative;
+  font-size: 5rem;
+  width: 17rem;
+  padding: 3rem;
+}
+.result::after {
+  content: "";
+  position: absolute;
+  width: 1600px;
+  height: 10px;
+  background-color: #eee;
+  left: -700px;
+  z-index: -1;
+  top: 50%;
+}
+
+.check_inputs {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 130px;
+}
+.check_input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+#text {
+  background: transparent;
+  border: 4px solid #eee;
+  font-family: inherit;
+  color: inherit;
+  font-size: 5rem;
+  padding: 2.5rem;
+  width: 25rem;
+  text-align: center;
+  display: block;
+  margin-bottom: 3rem;
+}
+h4 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+.conditions {
+  display: flex;
+  flex-direction: column;
+}
+.conditions > h4 {
+  margin-bottom: 80px;
+}
+.condition_cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.condition_card {
+  display: flex;
+  gap: 10px;
+}
+.loss {
+  display: none;
+}
+
+.win {
+  display: none;
+}
+.restart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  background-color: white;
+  height: 200px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s;
+  z-index: 1000;
+}
+.restart_card {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: (25px);
+}
+.hide {
+  display: none;
+}
+.restart {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.restart button {
+  background-color: #222;
+  color: white;
+  border-radius: 10px;
+  border: 3px solid transparent;
+}
+.restart button:hover {
+  border: 3px solid #222;
+  background-color: transparent;
+  color: #222;
+}
