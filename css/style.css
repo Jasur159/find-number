@@ -15,7 +15,7 @@ body {
   overflow-x: hidden;
 }
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .top_cnt {
@@ -61,7 +61,6 @@ h1 {
   text-align: center;
   padding: 30px;
   margin-top: 6rem;
-  position: relative;
   font-size: 5rem;
   width: 17rem;
   padding: 3rem;
@@ -69,12 +68,12 @@ h1 {
 .result::after {
   content: "";
   position: absolute;
-  width: 1600px;
+  width: 100%;
   height: 10px;
   background-color: #eee;
-  left: -700px;
   z-index: -1;
-  top: 50%;
+  left: 0;
+  top: 260px;
 }
 
 .check_inputs {
