@@ -59,7 +59,6 @@ checkBtn.addEventListener("click", () => {
   checkNum();
 });
 function checkNum() {
-  Input.disabled = true;
   let inputValue = Number(Input.value);
   if (!inputValue) {
     alert("Son kiriting");
@@ -114,6 +113,7 @@ function checkNum() {
         winMusic.play();
         Input.blur();
         bodyComponent.style.overflowY = "hidden";
+        bodyComponent.style.backgroundColor = "green";
         if (heroText.textContent.includes("Mening")) {
           referanceInput.textContent = "Siz topdingiz";
         } else if (heroText.textContent.includes("Guess")) {
@@ -156,6 +156,7 @@ function restartGame() {
   restartCard.classList.add("hide");
   resultBox.innerHTML = "?";
   bodyComponent.style.overflowY = "visible";
+  bodyComponent.style.backgroundColor = "#222";
 }
 
 //////////////// Change Languages ///////////////
@@ -168,6 +169,9 @@ function changeLanguage(value) {
     scoreText.innerHTML = `Natija:`;
     opportunityText.innerHTML = `: Imkoniyat qoldi`;
     checkBtn.textContent = "Tekshirish!";
+    resetBtn.textContent = "Yana";
+    restartBtn.textContent = "Qayta boshlash";
+    continueBtn.textContent = "Davom etish";
     Input.value = "";
   } else if (value === "eng") {
     tipText.textContent = "(Between 1 and 20)";
@@ -177,6 +181,9 @@ function changeLanguage(value) {
     opportunityText.innerHTML = `: Opportunity left`;
     checkBtn.textContent = "Check!";
     Input.value = "";
+    continueBtn.textContent = "Continue";
+    resetBtn.textContent = "Again";
+    restartBtn.textContent = "Restart";
   } else {
     tipText.textContent = "(Между 1 и 20)";
     heroText.innerHTML = "Найди мой номер!";
@@ -185,6 +192,9 @@ function changeLanguage(value) {
     opportunityText.innerHTML = `: Возможность осталась`;
     checkBtn.textContent = "проверять!";
     Input.value = "";
+    resetBtn.textContent = "снова";
+    restartBtn.textContent = "перезапуск";
+    continueBtn.textContent = "продолжать";
   }
 }
 
@@ -204,6 +214,7 @@ continueBtn.addEventListener("click", () => {
   bodyComponent.style.overflowY = "visible";
   if (opportunityNum > 0) {
     createRandomNum();
+    bodyComponent.style.backgroundColor = "#222";
     console.log(randomNum);
     Input.value = "";
     restartComponent.classList.add("hide");
